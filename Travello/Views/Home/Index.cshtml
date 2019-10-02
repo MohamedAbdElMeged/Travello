@@ -1,0 +1,154 @@
+﻿@model Travello.ViewModel.HotelCityViewModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+<div class="col-lg-4 col-md-6 banner-right">
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+       
+        <li class="nav-item">
+            <a class="nav-link active show" id="hotel-tab" data-toggle="tab" href="#hotel" role="tab" aria-controls="hotel" aria-selected="true">Book Hotels</a>
+        </li>
+        
+    </ul>
+    <div class="tab-content" id="myTabContent">
+     
+        <div class="tab-pane fade active show" id="hotel" role="tabpanel" aria-labelledby="hotel-tab">
+            <form class="form-wrap">
+                <input type="text" class="form-control" name="name" placeholder="From " onfocus="this.placeholder = ''" onblur="this.placeholder = 'From '">
+                <input type="text" class="form-control" name="to" placeholder="To " onfocus="this.placeholder = ''" onblur="this.placeholder = 'To '">
+                <input type="text" class="form-control date-picker hasDatepicker" name="start" placeholder="Type " onfocus="this.placeholder = ''" onblur="this.placeholder = 'Start '" id="dp1568899776537">
+                
+                <input type="number" min="1" max="20" class="form-control" name="adults" placeholder="persons " onfocus="this.placeholder = ''" onblur="this.placeholder = 'Adults '">
+               
+                <a href="#" class="primary-btn text-uppercase">Search Hotels</a>
+            </form>
+        </div>
+       
+    </div>
+</div>
+
+           
+
+            </div>
+        </div>
+    </section>
+
+
+<!-- Start popular-destination Area -->
+<section class="popular-destination-area section-gap">
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="menu-content pb-70 col-lg-8">
+                <div class="title text-center">
+                    <h1 class="mb-10">Popular Destinations</h1>
+                    <p>We all live in an age that belongs to the young at heart. Life that is becoming extremely fast, day.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            @for (int i = 0; i < Model.Cities.Count; i++)
+            {
+
+                <div class="col-lg-4">
+                    <div class="single-destination relative">
+                        <div class="thumb relative">
+                            <div class="overlay overlay-bg"></div>
+                            <img class="img-fluid" src="~/@Model.Cities[i].City_pic" alt="">
+                        </div>
+                        <div class="desc">
+
+                            <h4>Dream City</h4>
+                            <p>@Model.Cities[i].City_Name</p>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+
+<!-- End popular-destination Area -->
+<!-- Start price Area -->
+<section class="price-area section-gap">
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="menu-content pb-70 col-lg-8">
+                <div class="title text-center">
+                    <h1 class="mb-10">We Provide Affordable Prices</h1>
+                    <p>Well educated, intellectual people, especially scientists at all times demonstrate considerably.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="single-price">
+                    <h4>Cheap Packages</h4>
+                    <ul class="price-list">
+                        @for (int i = 0; i < Model.CheapHotels.Count; i++)
+                        {
+                            <li class="d-flex justify-content-between align-items-center">
+                                <span>@Model.CheapHotels[i].Hotel_name</span>
+                                <a  class="price-btn disabled">@Model.CheapHotels[i].Room_price $</a>
+                            </li>
+                        }
+
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="single-price">
+
+                    <h4>Luxury Packages</h4>
+                    <ul class="price-list">
+                        @for (int i = 0; i < Model.luxuryHotels.Count; i++)
+                        {
+                            <li class="d-flex justify-content-between align-items-center">
+                                <span>@Model.luxuryHotels[i].Hotel_name</span>
+                                <a  class="price-btn disabled">@Model.luxuryHotels[i].Room_price $</a>
+                            </li>
+                        }
+                    </ul>
+
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="single-price">
+                    <h4>Camping Packages</h4>
+                    <ul class="price-list">
+                        @for (int i = 0; i < Model.luxuryHotels.Count; i++)
+                        {
+                            <li class="d-flex justify-content-between align-items-center">
+                                <span>@Model.campingHotels[i].Hotel_name</span>
+                                <a  class="price-btn disabled">@Model.campingHotels[i].Room_price $</a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- End price Area -->
+<!-- Start home-about Area -->
+<section class="home-about-area">
+    <div class="container-fluid">
+        <div class="row align-items-center justify-content-end">
+            <div class="col-lg-6 col-md-12 home-about-left">
+                <h1>
+                    Did you find your Package? <br>
+                    Start Booking Now ! <br>
+
+                </h1>
+                @*<p>
+                        inappropriate behavior is often laughed off as “boys will be boys,” women face higher conduct standards especially in the workplace. That’s why it’s crucial that, as women, our behavior on the job is beyond reproach. inappropriate behavior is often laughed.
+                    </p>*@
+                <a href="Room/index" class="primary-btn text-uppercase">Book Now</a>
+            </div>
+            <div class="col-lg-6 col-md-12 home-about-right no-padding">
+                <img class="img-fluid" src="~/img/about-img.jpg" alt="">
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End home-about Area -->

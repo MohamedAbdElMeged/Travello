@@ -1,0 +1,39 @@
+﻿@model Travello.ViewModel.OrderViewModel
+      </div>
+    </div>
+</section>
+
+
+    <div class="container">
+        <div class="section-top-border">
+            <div class="row">
+                <div class="col-lg-8 col-md-8">
+                    <h3 class="mb-30">Start Booking !</h3>
+                    <form asp-controller="order" asp-action="createe" method="post">
+
+                        <input type="text" asp-for="user_id" value="@User.Claims.First().Value" hidden />
+                        <input type="text" asp-for="room_id" value="@Model.room_id" hidden />
+                        <input type="text" asp-for="room_price" value="@Model.room_price" hidden />
+
+                        <div class="mt-10">
+                            <input type="text" asp-for="user_name" class="form-control" name="user_name" placeholder="Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Name'" required class="single-input" value="@User.Identity.Name">
+                        </div>
+                        <div class="mt-10">
+                            <input type="date" asp-for="Order_from" class="form-control" name="Order_from" value=" " required class="single-input">
+                        </div>
+                        <div class="mt-10">
+                            <input type="date" asp-for="Order_to" class="form-control" name="Order_to" value=" " required class="single-input">
+                        </div>
+                        <div class="mt-10">
+                            <input type="number" asp-for="person_quantity" class="form-control" name="person_quantity" required class="single-input">
+                        </div>
+                        <br />
+
+                        <button class="btn btn-danger btn-lg form-control" type="submit">Book!</button>
+
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
